@@ -19,7 +19,8 @@ class Product
             $data['name'],
             $data['description'],
             new DateTime($data['createdAt']),
-            new DateTime($data['updatedAt'])
+            new DateTime($data['updatedAt']),
+            $pdo
         );
     }
 }
@@ -32,7 +33,18 @@ $pdo = new PDO(
 );
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$product = new Product();
-$product->category_id = 2;
+
+$product = new Product(
+    2, // id
+    'Nom du produit', // name
+    ['photo1.jpg'], // photos
+    100, // price
+    'Description', // description
+    10, // quantity
+    new DateTime('2023-01-01'), // createdAt
+    new DateTime('2023-01-02'), // updatedAt
+    2 // category_id
+);
+
 $category = $product->getCategory($pdo);
 var_dump($category);
