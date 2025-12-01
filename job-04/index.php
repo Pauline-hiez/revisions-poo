@@ -14,7 +14,7 @@ try {
     die("Erreur de connexion : " . $e->getMessage());
 }
 
-$query = $pdo->prepare("SELECT * FROM product WHERE id = :id");
+$query = $pdo->prepare("SELECT * FROM product WHERE id = :id"); // Id 2 au lieu de 7 car 3 produits seulement dans la table
 $query->execute(['id' => 2]);
 
 $productData = $query->fetch(PDO::FETCH_ASSOC);
