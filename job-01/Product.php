@@ -4,6 +4,9 @@ class Product
 {
     private int $id;
     private string $name;
+    /** 
+     * @var array<string>
+     */
     private array $photos;
     private int $price;
     private string $description;
