@@ -27,10 +27,21 @@ class Product
         $this->id = $id;
         $this->name = $name;
         $this->photos = $photos;
+        $this->price = $price;
         $this->description = $description;
         $this->quantity = $quantity;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
+    }
+
+    public function getPrice(): int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(int $price): void
+    {
+        $this->price = $price;
     }
 
     //GETTERS

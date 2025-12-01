@@ -31,6 +31,7 @@ class Product
         $this->id = $id;
         $this->name = $name;
         $this->photos = $photos;
+        $this->price = $price;
         $this->description = $description;
         $this->quantity = $quantity;
         $this->createdAt = $createdAt;
@@ -63,7 +64,36 @@ class Product
         return $products;
     }
 
-    public function create() {}
+    public function create()
+    {
+        try {
+            $query = $this->pdo->prepare("
+            INSERT INTO product (name, photos, price, description, quantity, createdAt, updatedAt, category_id)
+            VALUES (:name, :photos, :price, :description, :quantity, :createdAt, :updatedAt, :category_id)
+        ");
+
+            $success = $query->execute([
+                ":name"        => $this->name,
+                ":photos"      => json_encode($this->photos),
+                ":price"       => $this->price,
+                ":description" => $this->description,
+                ":quantity"    => $this->quantity,
+                ":createdAt"   => $this->createdAt->format("Y-m-d H:i:s"),
+                ":updatedAt"   => $this->updatedAt->format("Y-m-d H:i:s"),
+                ":category_id" => $this->category_id
+            ]);
+
+            if (!$success) {
+                return false;
+            }
+
+            $this->id = $this->pdo->lastInsertId();
+
+            return $this;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 
     //GETTERS
     public function getId(): int
