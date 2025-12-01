@@ -35,15 +35,15 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 $product = new Product(
-    2, // id
-    'Nom du produit', // name
-    ['photo1.jpg'], // photos
-    100, // price
-    'Description', // description
-    10, // quantity
-    new DateTime('2023-01-01'), // createdAt
-    new DateTime('2023-01-02'), // updatedAt
-    2 // category_id
+    2,
+    'Nom du produit',
+    ['photo1.jpg'],
+    100,
+    'Description',
+    10,
+    new DateTime('2023-01-01'),
+    new DateTime('2023-01-02'),
+    2
 );
 
 $category = $product->getCategory($pdo);
