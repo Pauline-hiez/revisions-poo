@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . 'Product.php';
+require_once __DIR__ . '/../job-11/Product.php';
 
 class Clothing extends Product
 {
@@ -8,7 +8,6 @@ class Clothing extends Product
     private string $color;
     private string $type;
     private int $material_fee;
-    // Permet l'accès à PDO si la classe parente ne le rend pas accessible
     protected PDO $pdo;
 
     public function __construct(
