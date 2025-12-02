@@ -1,5 +1,12 @@
 <?php
 
+namespace App;
+
+use App\AbstractProduct;
+use App\StockableInterface;
+use \Exception;
+use \DateTime;
+
 class Electronic extends AbstractProduct implements StockableInterface
 {
     protected string $brand;

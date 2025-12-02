@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/AbstractProduct.php';
+
 class Electronic extends AbstractProduct
 {
     public function __construct() {}

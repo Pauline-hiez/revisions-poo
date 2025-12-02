@@ -4,7 +4,7 @@
 require_once __DIR__ . '/../job-13/AbstractProduct.php';
 require_once __DIR__ . '/SockableInterface.php';
 
-class Clothing extends AbstractProduct implements SockableInterface
+class Clothing extends AbstractProduct implements StockableInterface
 {
     public function getQuantity(): int
     {

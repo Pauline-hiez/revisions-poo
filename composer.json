@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": [
+                "job-15/src/",
+                "job-15/Abstract/",
+                "job-15/Interface/"
+            ]
+        }
+    }
+}
+
