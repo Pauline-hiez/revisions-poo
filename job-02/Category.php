@@ -38,16 +38,6 @@ class Category
         return $this->description;
     }
 
-    public function getCreatedAt(): DateTime
-    {
-        return $this->createdAt;
-    }
-
-    public function getUpdatedAt(): DateTime
-    {
-        return $this->updatedAt;
-    }
-
     //SETTERS
     public function setId(int $id): void
     {
@@ -72,5 +62,16 @@ class Category
     public function setUpdatedAt(DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    public static function findOneById(int $id): ?Category
+    {
+        return new Category(
+            $id,
+            'Catégorie exemple',
+            'Description exemple',
+            new DateTime(),
+            new DateTime()
+        );
     }
 }
